@@ -4,12 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Privacy Policy — Panther Consulting</title>
-<style>
-@font-face { font-family:"Inter"; font-style:normal; font-weight:400; src:url("../fonts/inter-400.woff2") format("woff2"); font-display:swap; }
-@font-face { font-family:"Inter"; font-style:normal; font-weight:600; src:url("../fonts/inter-600.woff2") format("woff2"); font-display:swap; }
-@font-face { font-family:"Bodoni Moda"; font-style:normal; font-weight:400; src:url("../fonts/bodoni-moda-400.woff2") format("woff2"); font-display:swap; }
-@font-face { font-family:"Bodoni Moda"; font-style:italic; font-weight:400; src:url("../fonts/bodoni-moda-400-italic.woff2") format("woff2"); font-display:swap; }
-</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root { --ink:#211C18; --ink-soft:#5B534C; --clay:#93532F; --sand:#F1EBDE; --sand-line:rgba(33,28,24,0.15); --cream:#FFFDF8; --serif:"Bodoni Moda",Georgia,serif; --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
 * { box-sizing: border-box; }
@@ -56,8 +53,10 @@ footer.page-footer { border-top: 1px solid var(--sand-line); padding: 24px 0; fo
   <h2>2. Hosting</h2>
   <p>This site is hosted with Vercel Inc. Vercel automatically processes technical information (IP address, date/time of access, page requested, browser used) in server log files for technical delivery and security.</p>
 
-  <h2>3. Fonts</h2>
-  <p>The fonts used (Bodoni Moda, Inter) are served locally from our own server, not loaded from Google's servers. No data is transferred to third parties such as Google for this purpose.</p>
+  <h2>3. Google Fonts</h2>
+  <div class="warning">
+    This page currently loads fonts (Bodoni Moda, Inter) directly from Google's servers, which transfers the visitor's IP address to Google before consent is obtained. Several German courts have ruled this a GDPR violation. Recommendation: self-host the fonts instead. Let me know if you'd like me to change that.
+  </div>
 
   <h2>4. Contact</h2>
   <p>If you contact us by email, we process the information you provide (email address, name, message) to handle your inquiry, under Art. 6(1)(b) or (f) GDPR.</p>
