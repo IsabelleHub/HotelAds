@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Panther Consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root { --ink:#211C18; --ink-soft:#5B534C; --clay:#93532F; --sand:#F1EBDE; --sand-line:rgba(33,28,24,0.15); --cream:#FFFDF8; --serif:"Bodoni Moda",Georgia,serif; --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+* { box-sizing: border-box; }
+body { margin:0; font-family:var(--sans); color:var(--ink); background:var(--sand); line-height:1.65; -webkit-font-smoothing:antialiased; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 32px; }
+header.page-header { padding: 40px 0 20px; border-bottom: 1px solid var(--sand-line); }
+.wordmark { font-family: var(--serif); font-size: 1.1rem; color: var(--ink); text-decoration: none; }
+.back-link { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); text-decoration: none; }
+.back-link:hover { color: var(--clay); }
+main { padding: 60px 0 100px; }
+h1 { font-family: var(--serif); font-weight: 400; font-size: 2.4rem; margin: 0 0 0.3em; }
+h2 { font-family: var(--serif); font-weight: 400; font-style: italic; font-size: 1.3rem; margin: 2.2em 0 0.5em; color: var(--ink); }
+h3 { font-family: var(--sans); font-weight: 600; font-size: 0.95rem; margin: 1.6em 0 0.4em; color: var(--ink); }
+p, li { color: var(--ink-soft); font-size: 0.98rem; }
+a { color: var(--clay); }
+.notice { background: var(--cream); border-left: 2px solid var(--clay); padding: 18px 22px; font-size: 0.88rem; margin-bottom: 2.5em; }
+.warning { background: rgba(147,83,47,0.1); border-left: 2px solid var(--clay); padding: 18px 22px; font-size: 0.9rem; margin: 1.2em 0; }
+.placeholder { background: rgba(147,83,47,0.14); padding: 1px 5px; border-radius: 2px; }
+footer.page-footer { border-top: 1px solid var(--sand-line); padding: 24px 0; font-size: 0.8rem; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.06em; }
+</style>
+</head>
+<body>
+<header class="page-header">
+  <div class="wrap" style="display:flex; justify-content:space-between; align-items:center;">
+    <a href="/en/" class="wordmark">Panther Consulting</a>
+    <a href="/en/" class="back-link">← Back to home</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Privacy Policy</h1>
+
+  <div class="notice">
+    <strong>Note:</strong> Draft, not reviewed legal text. The <a href="/datenschutz">German version</a> is the legally authoritative one for this site's DACH audience.
+  </div>
+
+  <h2>1. Controller</h2>
+  <p>
+    <span class="placeholder">[Name / company]</span><br>
+    <span class="placeholder">[Address]</span><br>
+    Email: info@panther-consulting.com
+  </p>
+
+  <h2>2. Hosting</h2>
+  <p>This site is hosted with Vercel Inc. Vercel automatically processes technical information (IP address, date/time of access, page requested, browser used) in server log files for technical delivery and security.</p>
+
+  <h2>3. Google Fonts</h2>
+  <div class="warning">
+    This page currently loads fonts (Bodoni Moda, Inter) directly from Google's servers, which transfers the visitor's IP address to Google before consent is obtained. Several German courts have ruled this a GDPR violation. Recommendation: self-host the fonts instead. Let me know if you'd like me to change that.
+  </div>
+
+  <h2>4. Contact</h2>
+  <p>If you contact us by email, we process the information you provide (email address, name, message) to handle your inquiry, under Art. 6(1)(b) or (f) GDPR.</p>
+
+  <h2>5. Cookies</h2>
+  <p><span class="placeholder">[This site does not currently set its own cookies. If you add analytics or tracking pixels later, this section needs updating, typically along with a cookie consent banner.]</span></p>
+
+  <h2>6. Your rights</h2>
+  <p>You have the right to access, rectify, or delete your personal data, restrict or object to processing, request data portability, and lodge a complaint with a data protection authority.</p>
+</main>
+
+<footer class="page-footer">
+  <div class="wrap">© <span id="year"></span> Panther Consulting</div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
