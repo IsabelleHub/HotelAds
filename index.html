@@ -3,7 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Panther Consulting — Google &amp; Meta Ads für Boutique-Hotels</title>
+<title>Panther Consulting · Meta &amp; Google Ads für Boutique-Hotels</title>
+<meta name="description" content="Panther Consulting ist eine Agentur für Meta & Google Ads für inhabergeführte Boutique-Hotels auf Mallorca und im DACH-Raum. Ergänzend: Copywriting, Social Media, Video und Branding.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Panther Consulting">
+<meta property="og:locale" content="de_DE">
+<meta property="og:url" content="https://hotel-ads.vercel.app/">
+<meta property="og:title" content="Panther Consulting · Meta &amp; Google Ads für Boutique-Hotels">
+<meta property="og:description" content="Meta &amp; Google Ads für inhabergeführte Boutique-Hotels auf Mallorca und im DACH-Raum. Mehr Direktbuchungen, ohne laut zu sein. Kostenloses Erstgespräch.">
+<meta property="og:image" content="https://hotel-ads.vercel.app/images/og-preview-de.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Mehr Direktbuchungen für Ihr Haus, ohne laut zu sein – Panther Consulting">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://hotel-ads.vercel.app/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <style>
 @font-face { font-family:"Inter"; font-style:normal; font-weight:400; src:url("fonts/inter-400.woff2") format("woff2"); font-display:swap; }
 @font-face { font-family:"Inter"; font-style:normal; font-weight:600; src:url("fonts/inter-600.woff2") format("woff2"); font-display:swap; }
@@ -14,8 +30,13 @@
 :root {
   --ink: #211C18;
   --ink-soft: #5B534C;
-  --clay: #93532F;
+  --clay: #155D58;
+  --green-deep: #0F4642;
+  --clay-light: #9CCBC3;
+  --cta: #155D58;
+  --cta-hover: #24867D;
   --sand: #F1EBDE;
+  --sand-2: #EAE1D0;
   --sand-line: rgba(33,28,24,0.15);
   --cream: #FFFDF8;
   --serif: "Bodoni Moda", Georgia, serif;
@@ -32,33 +53,44 @@ h2 { font-size: clamp(2rem, 3.4vw, 2.9rem); }
 p { margin: 0 0 1em; color: var(--ink-soft); }
 a { color: inherit; }
 .eyebrow-text { font-family: var(--sans); text-transform: uppercase; letter-spacing: 0.14em; color: var(--clay); font-size: 0.74rem; font-weight: 600; margin: 0 0 0.9em; }
+.eyebrow-light { color: rgba(255,253,248,0.8); }
 
-.btn-outline { display: inline-flex; align-items: center; text-decoration: none; color: var(--ink); font-family: var(--sans); font-weight: 600; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid currentColor; padding: 15px 30px; transition: background 0.25s ease, color 0.25s ease; }
+.btn-outline { border-radius: 999px; display: inline-flex; align-items: center; text-decoration: none; color: var(--ink); font-family: var(--sans); font-weight: 600; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid currentColor; padding: 15px 30px; background: transparent; cursor: pointer; transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease; }
 .btn-outline:hover { background: var(--ink); color: var(--cream); }
 .btn-outline-light { color: var(--cream); }
 .btn-outline-light:hover { background: var(--cream); color: var(--ink); }
+.btn-solid { background: var(--cream); color: var(--ink); border-color: var(--cream); }
+.btn-solid:hover { background: var(--cta); border-color: var(--cta); color: var(--cream); }
+.btn-green { background: var(--cta); border-color: var(--cta); color: var(--cream); }
+.btn-green:hover { background: var(--cta-hover); border-color: var(--cta-hover); color: var(--cream); }
+.text-link { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--clay); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 3px; }
+.text-link:hover { color: var(--ink); }
 
 .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 40; transition: background 0.3s ease, box-shadow 0.3s ease; }
 .site-header.scrolled { background: rgba(241, 235, 222, 0.96); backdrop-filter: blur(8px); box-shadow: 0 1px 0 rgba(33,28,24,0.1); }
 .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 26px 0; }
 .wordmark { font-family: var(--serif); font-size: 1.15rem; letter-spacing: 0.01em; color: var(--cream); text-decoration: none; transition: color 0.3s ease; }
+.wordmark small { font-family: var(--sans); font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.16em; opacity: 0.75; margin-left: 10px; }
 .site-header.scrolled .wordmark { color: var(--ink); }
 .nav { display: flex; align-items: center; gap: 34px; }
 .nav a { color: rgba(255,253,248,0.92); text-decoration: none; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.3s ease; }
 .site-header.scrolled .nav a { color: var(--ink-soft); }
 .nav a:hover { color: var(--clay); }
+.nav a.nav-cta, .site-header.scrolled .nav a.nav-cta { color: var(--cream) !important; }
 .lang-switch { font-weight: 600; opacity: 0.9; }
 .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
 .nav-toggle span { width: 22px; height: 2px; background: var(--cream); display: block; }
 .site-header.scrolled .nav-toggle span { background: var(--ink); }
 
-.hero { position: relative; height: 100vh; min-height: 640px; display: flex; align-items: flex-end; overflow: hidden; }
+.hero { position: relative; height: 100vh; min-height: 680px; display: flex; align-items: flex-end; overflow: hidden; }
 .hero-media { position: absolute; inset: 0; }
 .hero-media img { width: 100%; height: 100%; object-fit: cover; filter: sepia(0.22) saturate(0.8) contrast(1.08) brightness(0.85); }
-.hero-scrim { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(20,14,10,0.72) 0%, rgba(20,14,10,0.22) 45%, rgba(20,14,10,0.02) 68%); }
-.hero-content { position: relative; color: var(--cream); padding-bottom: 110px; max-width: 760px; }
-.hero-content h1 { color: var(--cream); font-size: clamp(2.9rem, 6.6vw, 5.4rem); max-width: 12ch; }
-.hero-sub { color: rgba(255,253,248,0.9); font-size: 1.1rem; max-width: 44ch; margin-bottom: 2.2em; font-family: var(--sans); }
+.hero-scrim { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(20,14,10,0.78) 0%, rgba(20,14,10,0.3) 50%, rgba(20,14,10,0.05) 75%); }
+.hero-content { position: relative; color: var(--cream); padding-bottom: 100px; width: 100%; }
+.hero-content h1 { color: var(--cream); font-size: clamp(2.7rem, 6vw, 5rem); max-width: 14ch; }
+.hero-sub { color: rgba(255,253,248,0.9); font-size: 1.1rem; max-width: 52ch; margin-bottom: 2.2em; font-family: var(--sans); }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+.hero-trust { margin: 34px 0 0; display: flex; flex-wrap: wrap; gap: 10px 28px; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,253,248,0.75); }
 
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.in-view { opacity: 1; transform: translateY(0); }
@@ -68,28 +100,76 @@ a { color: inherit; }
 .split-copy h2 { max-width: 12ch; }
 .split-media { position: relative; overflow: hidden; }
 .split-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.photo-placeholder { background: var(--sand-2, #EAE1D0); display: flex; align-items: center; justify-content: center; border: 1px dashed var(--sand-line); }
+.photo-placeholder { background: var(--sand-2); display: flex; align-items: center; justify-content: center; border: 1px dashed var(--sand-line); }
 .photo-placeholder span { font-family: var(--sans); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-soft); }
-.fit-list { list-style: none; margin: 1.8em 0 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--sand-line); max-width: 42ch; }
+.fit-list { list-style: none; margin: 0.6em 0 1.4em; padding: 0; border-top: 1px solid var(--sand-line); max-width: 46ch; }
 .fit-list li { padding: 14px 0; border-bottom: 1px solid var(--sand-line); color: var(--ink-soft); font-size: 0.95rem; }
 
 .lifestyle-break { position: relative; height: 62vh; min-height: 440px; display: flex; align-items: center; overflow: hidden; }
 .lifestyle-break img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: sepia(0.2) saturate(0.82) contrast(1.06) brightness(0.9); }
 .lifestyle-scrim { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,14,10,0.6) 0%, rgba(20,14,10,0.1) 65%); }
-.lifestyle-inner { position: relative; }
+.lifestyle-inner { position: relative; width: 100%; }
 .lifestyle-inner h2 { color: var(--cream); max-width: 16ch; }
 
+.section-head { max-width: 58ch; margin-bottom: 4em; }
+.section-foot { margin-top: 48px; display: flex; flex-wrap: wrap; align-items: center; gap: 18px 30px; }
+.section-foot p { margin: 0; }
+
 .leistungen { padding: 130px 0; }
-.section-head { max-width: 50ch; margin-bottom: 4em; }
-.tile-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
-.tile { position: relative; height: 420px; overflow: hidden; }
-.tile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
-.tile:hover img { transform: scale(1.04); }
-.tile-scrim { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(20,14,10,0.82) 0%, rgba(20,14,10,0.15) 55%, rgba(20,14,10,0) 75%); }
-.tile-label { position: absolute; left: 22px; right: 22px; bottom: 22px; color: var(--cream); }
-.tile-label .service-num { font-family: var(--serif); font-style: italic; font-size: 0.95rem; opacity: 0.75; display: block; margin-bottom: 8px; }
-.tile-label h3 { color: var(--cream); font-family: var(--serif); font-style: italic; font-size: 1.85rem; font-weight: 400; margin: 0 0 8px; line-height: 1.1; }
-.tile-label p { color: rgba(255,253,248,0.82); font-size: 0.82rem; margin: 0; line-height: 1.4; }
+.tiles-core { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+.tiles-addon { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.ptile { position: relative; display: block; overflow: hidden; isolation: isolate; border-radius: 22px; text-decoration: none; color: var(--cream); transition: transform 0.6s cubic-bezier(.2,.7,.2,1), box-shadow 0.6s ease; }
+.tiles-core .ptile { height: 580px; }
+.tiles-addon .ptile { height: 390px; border-radius: 18px; }
+.ptile img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; transition: transform 1.1s cubic-bezier(.2,.7,.2,1); }
+.ptile::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, rgba(20,14,10,0.9) 0%, rgba(20,14,10,0.55) 40%, rgba(20,14,10,0.08) 72%, rgba(20,14,10,0) 100%); }
+.ptile:hover { transform: translateY(-6px); box-shadow: 0 30px 50px -26px rgba(33,28,24,0.6); }
+.ptile:hover img { transform: scale(1.06); }
+.ptile-pill { position: absolute; top: 20px; left: 20px; font-size: 0.64rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream); background: rgba(255,253,248,0.14); border: 1px solid rgba(255,253,248,0.35); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); padding: 7px 14px; border-radius: 999px; }
+.ptile-body { position: absolute; left: 34px; right: 34px; bottom: 32px; }
+.tiles-addon .ptile-body { left: 24px; right: 24px; bottom: 24px; }
+.ptile .service-num { font-family: var(--serif); font-style: italic; font-size: 0.95rem; color: var(--clay-light); display: block; margin-bottom: 8px; }
+.ptile h3 { color: var(--cream); font-style: italic; font-size: clamp(2rem, 3vw, 2.7rem); margin: 0 0 12px; }
+.tiles-addon .ptile h3 { font-size: 1.55rem; margin-bottom: 8px; }
+.ptile p { color: rgba(255,253,248,0.86); font-size: 0.93rem; line-height: 1.5; margin: 0 0 18px; max-width: 44ch; }
+.tiles-addon .ptile p { font-size: 0.84rem; margin-bottom: 16px; }
+.ptile-points { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 24px; padding: 0; }
+.ptile-points li { font-size: 0.74rem; color: var(--cream); padding: 6px 13px; border-radius: 999px; background: rgba(255,253,248,0.1); border: 1px solid rgba(255,253,248,0.24); }
+.ptile-cta { display: inline-flex; align-items: center; gap: 10px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream); padding-bottom: 7px; background: linear-gradient(var(--clay-light), var(--clay-light)) 0 100% / 28px 1px no-repeat; transition: background-size 0.6s ease; }
+.ptile:hover .ptile-cta { background-size: 100% 1px; }
+.ptile-cta .arrow { transition: transform 0.4s ease; }
+.ptile:hover .ptile-cta .arrow { transform: translateX(5px); }
+.addons { margin-top: 90px; }
+.addons-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px 40px; margin-bottom: 28px; }
+.addons-head h3 { font-size: clamp(1.5rem, 2.2vw, 1.9rem); margin: 0; }
+.addons-head p { margin: 0; max-width: 46ch; font-size: 0.93rem; }
+
+.modelle { padding: 130px 0; background: var(--ink) !important; }
+.modelle h2 { color: var(--cream); }
+.modelle .section-head p { color: rgba(255,253,248,0.72); }
+.modelle .eyebrow-text { color: var(--clay-light); }
+.model-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.model { display: flex; flex-direction: column; overflow: hidden; border-radius: 22px; background: rgba(255,253,248,0.05); box-shadow: inset 0 0 0 1px rgba(255,253,248,0.08); transition: transform 0.6s cubic-bezier(.2,.7,.2,1), background 0.6s ease; }
+.model:hover { transform: translateY(-6px); background: rgba(255,253,248,0.08); }
+.model-media { position: relative; height: 210px; overflow: hidden; }
+.model-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1.1s cubic-bezier(.2,.7,.2,1); }
+.model:hover .model-media img { transform: scale(1.06); }
+.model-body { display: flex; flex-direction: column; flex: 1; padding: 30px 30px 32px; }
+.model h3 { color: var(--cream); font-size: 1.8rem; }
+.model p { color: rgba(255,253,248,0.75); font-size: 0.93rem; }
+.model ul { list-style: none; margin: 6px 0 30px; padding: 0; border-top: 1px solid rgba(255,253,248,0.12); }
+.model li { color: rgba(255,253,248,0.82); font-size: 0.88rem; padding: 11px 0; border-bottom: 1px solid rgba(255,253,248,0.12); position: relative; }
+.model .btn-outline { margin-top: auto; align-self: flex-start; }
+
+.ablauf { padding: 130px 0; background: var(--green-deep) !important; }
+.ablauf h2, .ablauf .step h3 { color: var(--cream); }
+.ablauf .eyebrow-text, .ablauf .step-num { color: var(--clay-light); }
+.ablauf .step p { color: rgba(255,253,248,0.75); }
+.ablauf .steps { border-top-color: rgba(255,253,248,0.18); }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; border-top: 1px solid var(--sand-line); padding-top: 44px; }
+.step-num { font-family: var(--serif); font-style: italic; font-size: 2.6rem; color: var(--clay); line-height: 1; display: block; margin-bottom: 18px; }
+.step h3 { font-size: 1.55rem; }
+.step p { font-size: 0.95rem; margin: 0; }
 
 .referenz { padding: 130px 0; }
 .referenz-grid { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 64px; align-items: start; }
@@ -99,46 +179,78 @@ a { color: inherit; }
 .referenz-fact { border-left: 1px solid var(--sand-line); padding-left: 30px; }
 .fact-number { font-family: var(--serif); font-size: 3.8rem; color: var(--ink); line-height: 1; display: block; font-style: italic; }
 .fact-label { font-size: 0.85rem; color: var(--ink-soft); margin-top: 10px; display: block; }
-.fact-note { margin-top: 1.6em; font-size: 0.9rem; }
 
 .social-proof { border-top: 1px solid var(--sand-line); margin-top: 90px; padding-top: 70px; }
 .stats-row { display: flex; gap: 60px; margin-bottom: 60px; }
 .stats-row .fact-number { font-size: 3rem; }
 .testimonial-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-.testimonial-card { border: 1px solid var(--sand-line); padding: 30px 30px; }
+.testimonial-card { border: 1px solid var(--sand-line); border-radius: 20px; background: rgba(255,253,248,0.5); padding: 32px 32px; }
 .testimonial-card p.quote { font-family: var(--serif); font-style: italic; font-size: 1.02rem; color: var(--ink-soft); margin: 0 0 1.2em; line-height: 1.5; }
 .testimonial-card .who { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--clay); }
 
-
-
 .cta-final { position: relative; padding: 150px 0; overflow: hidden; }
-.cta-final .hero-media img { filter: sepia(0.22) saturate(0.75) contrast(1.1) brightness(0.55); }
+.cta-final .hero-media img { filter: sepia(0.22) saturate(0.75) contrast(1.1) brightness(0.5); }
+.cta-final .hero-scrim { background: rgba(20,14,10,0.35); }
 .cta-final .wrap { position: relative; }
+.contact-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items: center; }
 .cta-final h2 { color: var(--cream); max-width: 14ch; }
-.cta-inner p { color: rgba(255,253,248,0.88); max-width: 46ch; }
+.cta-final p { color: rgba(255,253,248,0.88); max-width: 46ch; }
+.contact-card { border-radius: 22px; border: 1px solid rgba(255,253,248,0.35); background: rgba(20,14,10,0.35); backdrop-filter: blur(4px); padding: 36px; color: var(--cream); }
+.contact-card .eyebrow-text { color: rgba(255,253,248,0.75); }
+.mail-address { font-family: var(--serif); font-size: clamp(1.2rem, 2vw, 1.5rem); color: var(--cream); text-decoration: none; word-break: break-all; display: inline-block; margin-bottom: 16px; }
+.mail-address:hover { color: var(--clay-light); }
+.copy-btn { padding: 10px 18px; font-size: 0.7rem; }
+.contact-card ul { list-style: none; margin: 28px 0 0; padding: 22px 0 0; border-top: 1px solid rgba(255,253,248,0.25); }
+.contact-card li { font-size: 0.9rem; color: rgba(255,253,248,0.85); padding: 9px 0; border-bottom: 1px solid rgba(255,253,248,0.15); position: relative; }
 
 .site-footer { background: var(--ink); color: rgba(241,235,222,0.65); padding: 30px 0; font-size: 0.78rem; }
 .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; text-transform: uppercase; letter-spacing: 0.06em; }
-.footer-nav { display: flex; gap: 22px; }
+.footer-nav { display: flex; flex-wrap: wrap; gap: 22px; }
 .footer-nav a { text-decoration: none; color: rgba(241,235,222,0.65); }
 .footer-nav a:hover { color: var(--cream); }
 
+
+/* Aufdeck-Effekt: die obere Gruppe schiebt sich nach oben weg und gibt die darunterliegende frei */
+.stack { position: relative; background: var(--sand); }
+.stack:not(:last-child) { border-radius: 0 0 28px 28px; overflow: hidden; box-shadow: 0 30px 60px -30px rgba(20,14,10,0.5); }
+.stack + .stack { min-height: 100vh; display: flex; flex-direction: column; will-change: transform; }
+.stack + .stack > section:last-child { flex: 1 0 auto; }
+main > .stack > section { background: var(--sand); }
+
+@media (max-width: 1000px) {
+  .tiles-addon { grid-template-columns: repeat(2, 1fr); }
+  .model-grid { grid-template-columns: 1fr; max-width: 560px; }
+}
 @media (max-width: 900px) {
+  .wrap { padding: 0 20px; }
   .split { grid-template-columns: 1fr; }
-  .split-copy { padding: 60px 28px; }
+  .split-copy { padding: 60px 20px; }
   .split-media { height: 50vh; }
-  .referenz-grid { grid-template-columns: 1fr; }
+  .leistungen, .modelle, .ablauf, .referenz { padding: 90px 0; }
+  .referenz-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .referenz-fact { border-left: none; padding-left: 0; }
   .social-proof { margin-top: 60px; padding-top: 50px; }
   .stats-row { flex-direction: column; gap: 24px; }
-  .testimonial-row { grid-template-columns: 1fr; }
-  .tile-strip { grid-template-columns: repeat(2, 1fr); }
-  .tile { height: 280px; }
+  .testimonial-row, .steps, .tiles-core { grid-template-columns: 1fr; }
+  .tiles-core .ptile { height: 520px; }
+  .cta-final { padding: 100px 0; }
+  .contact-card { padding: 26px 22px; }
+  .hero-content { padding-bottom: 70px; }
   .nav { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--sand); flex-direction: column; align-items: flex-start; justify-content: center; padding: 40px 32px; gap: 26px; display: none; }
-  .nav a { color: var(--ink); font-size: 1rem; }
+  .nav a, .site-header.scrolled .nav a { color: var(--ink); font-size: 1rem; }
   .nav.open { display: flex; }
   .nav-toggle { display: flex; z-index: 41; }
+  .nav.open ~ .nav-toggle span { background: var(--ink); }
+  .wordmark small { display: none; }
+}
+@media (max-width: 600px) {
+  .tiles-addon { grid-template-columns: 1fr; }
+  .tiles-addon .ptile { height: 360px; }
+  .ptile-body { left: 22px; right: 22px; bottom: 24px; }
+  .model-body { padding: 26px 22px 28px; }
 }
 @media (prefers-reduced-motion: reduce) {
+  .stack + .stack { transform: none !important; }
   .reveal { opacity: 1; transform: none; transition: none; }
   html { scroll-behavior: auto; }
 }
@@ -148,13 +260,13 @@ a { color: inherit; }
 
 <header class="site-header" id="siteHeader">
   <div class="wrap header-inner">
-    <a href="#top" class="wordmark">Panther Consulting</a>
+    <a href="#top" class="wordmark">Panther Consulting<small>Hotelmarketing</small></a>
     <nav class="nav" id="mainNav">
       <a href="#leistungen">Leistungen</a>
-      <a href="#fuer-wen">Für wen</a>
-      <a href="#referenz">Referenz</a>
-      <a href="#ueber-mich">Über mich</a>
-      <a href="#kontakt" class="btn-outline btn-outline-light" style="padding:10px 20px;">Erstgespräch</a>
+      <a href="#zusammenarbeit">Zusammenarbeit</a>
+      <a href="#ablauf">Ablauf</a>
+      <a href="#referenz">Referenzen</a>
+      <a href="#kontakt" class="btn-outline btn-green nav-cta" style="padding:10px 20px;">Erstgespräch</a>
       <a href="/en/" class="lang-switch">EN</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -163,86 +275,239 @@ a { color: inherit; }
 
 <main id="top">
 
+  <div class="stack">
   <section class="hero">
     <div class="hero-media">
-      <img src="https://images.unsplash.com/photo-1779881719036-4f91f601a82d?fm=jpg&q=75&w=2200&auto=format&fit=crop" alt="Küstenort mit Terracotta-Dächern und blauem Meer">
+      <img src="https://images.unsplash.com/photo-1749037247119-18c609a337a6?fm=jpg&amp;q=75&amp;w=2200&amp;auto=format&amp;fit=crop" alt="Mallorquinisches Bergdorf zwischen grünen Hängen">
       <div class="hero-scrim"></div>
     </div>
     <div class="wrap hero-content">
-      <h1>Aufmerksamkeit für Ihr Haus, <em>ohne laut zu sein.</em></h1>
-      <p class="hero-sub">Google und Meta Ads für inhabergeführte Boutique-Hotels auf Mallorca und im DACH-Raum.</p>
-      <a href="#kontakt" class="btn-outline btn-outline-light">Erstgespräch anfragen</a>
+      <p class="eyebrow-text eyebrow-light">Hotelmarketing-Agentur · Mallorca &amp; DACH</p>
+      <h1>Mehr Direktbuchungen für Ihr Haus, <em>ohne laut zu sein.</em></h1>
+      <p class="hero-sub">Wir sind eine Agentur für inhabergeführte Boutique-Hotels: Facebook-, Instagram- und Google-Ads, die genau dann laufen, wenn Ihre Gäste buchen. Auf Wunsch mit Texten, Content und Video aus einer Hand.</p>
+      <div class="hero-actions">
+        <a href="#kontakt" class="btn-outline btn-green">Kostenloses Erstgespräch</a>
+        <a href="#leistungen" class="btn-outline btn-outline-light">Leistungen ansehen</a>
+      </div>
+      <p class="hero-trust"><span>14 Jahre Erfahrung im Online Marketing</span><span>Meta &amp; Google Ads</span><span>Eine feste Ansprechpartnerin</span></p>
     </div>
   </section>
 
-  <section class="split reveal" id="fuer-wen">
+  <section class="leistungen" id="leistungen">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow-text">Leistungen</p>
+        <h2>Werbeanzeigen, die Ihre Zimmer <em>und Veranstaltungen füllen.</em></h2>
+        <p>Unser Kern sind Kampagnen auf Facebook, Instagram und Google, die genau dann laufen, wenn Ihre Gäste buchen. Und wenn Sie mehr möchten, stärken wir Ihr Haus auch darüber hinaus.</p>
+      </div>
+      <div class="tiles-core">
+        <a class="ptile" href="mailto:info@panther-consulting.com?subject=Anfrage%3A%20Facebook%20%26%20Instagram%20Ads&amp;body=Hallo%20Panther-Team%2C%0A%0Aunser%20Hotel%3A%20%0AWebsite%3A%20%0AWas%20wir%20erreichen%20m%C3%B6chten%3A%20%0AAm%20besten%20erreichbar%20unter%3A%20%0A%0AViele%20Gr%C3%BC%C3%9Fe%0A">
+          <img src="https://images.unsplash.com/photo-1644408683082-17b11d7322af?fm=jpg&amp;q=75&amp;w=1400&amp;auto=format&amp;fit=crop" style="object-position: center 100%;" alt="Pool mit Palmen, Zypresse und Bougainvillea" loading="lazy">
+          <span class="ptile-pill">Kernleistung</span>
+          <div class="ptile-body">
+            <span class="service-num">01</span>
+            <h3>Facebook &amp; Instagram Ads</h3>
+            <p>Präsent, während Ihre Gäste vom nächsten Urlaub träumen, mit Kampagnen für jede Saison und jede Zielgruppe.</p>
+            <ul class="ptile-points"><li>Saisonkampagnen</li><li>Retargeting</li><li>Laufende Anzeigentests</li></ul>
+            <span class="ptile-cta">Meta Ads anfragen <span class="arrow">→</span></span>
+          </div>
+        </a>
+        <a class="ptile" href="mailto:info@panther-consulting.com?subject=Anfrage%3A%20Google%20Ads&amp;body=Hallo%20Panther-Team%2C%0A%0Aunser%20Hotel%3A%20%0AWebsite%3A%20%0AWas%20wir%20erreichen%20m%C3%B6chten%3A%20%0AAm%20besten%20erreichbar%20unter%3A%20%0A%0AViele%20Gr%C3%BC%C3%9Fe%0A">
+          <img src="images/google-pool-hd.jpg" style="object-position: center 100%;" alt="Pool mit Liegen, Sonnenschirm und Bananenstaude vor einer Natursteinmauer" loading="lazy">
+          <span class="ptile-pill">Kernleistung</span>
+          <div class="ptile-body">
+            <span class="service-num">02</span>
+            <h3>Google Ads</h3>
+            <p>Sichtbar genau dann, wenn Gäste nach Ihrem Reiseziel suchen, und gebucht direkt auf Ihrer Website statt über das Portal.</p>
+            <ul class="ptile-points"><li>Suchkampagnen</li><li>Brand-Schutz gegen OTAs</li><li>Tracking bis zur Buchung</li></ul>
+            <span class="ptile-cta">Google Ads anfragen <span class="arrow">→</span></span>
+          </div>
+        </a>
+      </div>
+
+      <div class="addons">
+        <div class="addons-head">
+          <div>
+            <p class="eyebrow-text">Add-ons · ergänzend buchbar</p>
+            <h3>Damit Ihr Haus <em>noch stärker</em> erscheint.</h3>
+          </div>
+          <p>Für einen rundum starken Auftritt, auch über die Anzeigen hinaus. Dafür arbeiten wir mit festen Spezialisten aus unserem Netzwerk, ganz nach Bedarf.</p>
+        </div>
+        <div class="tiles-addon">
+          <a class="ptile" href="mailto:info@panther-consulting.com?subject=Anfrage%3A%20Copywriting&amp;body=Hallo%20Panther-Team%2C%0A%0Aunser%20Hotel%3A%20%0AWebsite%3A%20%0AWas%20wir%20erreichen%20m%C3%B6chten%3A%20%0AAm%20besten%20erreichbar%20unter%3A%20%0A%0AViele%20Gr%C3%BC%C3%9Fe%0A">
+            <img src="https://images.unsplash.com/photo-1569846999777-3a443cf4278a?fm=jpg&amp;q=75&amp;w=900&amp;auto=format&amp;fit=crop" alt="Steinhaus mit Holztür und Blumentöpfen" loading="lazy">
+            <span class="ptile-pill">Add-on</span>
+            <div class="ptile-body">
+              <h3>Copywriting</h3>
+              <p>Texte für Homepage, Landingpages, Newsletter und Kampagnen, die nach Ihrem Haus klingen.</p>
+              <span class="ptile-cta">Anfragen <span class="arrow">→</span></span>
+            </div>
+          </a>
+          <a class="ptile" href="mailto:info@panther-consulting.com?subject=Anfrage%3A%20Social%20Media&amp;body=Hallo%20Panther-Team%2C%0A%0Aunser%20Hotel%3A%20%0AWebsite%3A%20%0AWas%20wir%20erreichen%20m%C3%B6chten%3A%20%0AAm%20besten%20erreichbar%20unter%3A%20%0A%0AViele%20Gr%C3%BC%C3%9Fe%0A">
+            <img src="https://images.unsplash.com/photo-1667987566780-3b31fa5485c8?fm=jpg&amp;q=75&amp;w=700&amp;h=1000&amp;fit=crop&amp;crop=focalpoint&amp;fp-x=0.76&amp;fp-y=0.62&amp;fp-z=1.7" alt="Poolterrasse mit Liegen und Bäumen" loading="lazy">
+            <span class="ptile-pill">Add-on</span>
+            <div class="ptile-body">
+              <h3>Social Media</h3>
+              <p>Mehr organische Reichweite: Content und Community-Pflege, damit Ihr Haus auch ohne Werbebudget präsent bleibt.</p>
+              <span class="ptile-cta">Anfragen <span class="arrow">→</span></span>
+            </div>
+          </a>
+          <a class="ptile" href="mailto:info@panther-consulting.com?subject=Anfrage%3A%20Videoproduktion&amp;body=Hallo%20Panther-Team%2C%0A%0Aunser%20Hotel%3A%20%0AWebsite%3A%20%0AWas%20wir%20erreichen%20m%C3%B6chten%3A%20%0AAm%20besten%20erreichbar%20unter%3A%20%0A%0AViele%20Gr%C3%BC%C3%9Fe%0A">
+            <img src="https://images.unsplash.com/photo-1690832307571-d78b5d346651?fm=jpg&amp;q=75&amp;w=900&amp;auto=format&amp;fit=crop" alt="Blick aus einem Fenster aufs Meer" loading="lazy">
+            <span class="ptile-pill">Add-on</span>
+            <div class="ptile-body">
+              <h3>Videoproduktion</h3>
+              <p>Hotelfilme, Reels und Anzeigenvideos, die Atmosphäre spürbar machen.</p>
+              <span class="ptile-cta">Anfragen <span class="arrow">→</span></span>
+            </div>
+          </a>
+          <a class="ptile" href="mailto:info@panther-consulting.com?subject=Anfrage%3A%20Branding&amp;body=Hallo%20Panther-Team%2C%0A%0Aunser%20Hotel%3A%20%0AWebsite%3A%20%0AWas%20wir%20erreichen%20m%C3%B6chten%3A%20%0AAm%20besten%20erreichbar%20unter%3A%20%0A%0AViele%20Gr%C3%BC%C3%9Fe%0A">
+            <img src="https://images.unsplash.com/photo-1568324479031-8a064e26dd52?fm=jpg&amp;q=75&amp;w=900&amp;auto=format&amp;fit=crop" alt="Steinhaus mit Laterne" loading="lazy">
+            <span class="ptile-pill">Add-on</span>
+            <div class="ptile-body">
+              <h3>Branding</h3>
+              <p>Positionierung und Bildsprache für Häuser mit klarer Handschrift.</p>
+              <span class="ptile-cta">Anfragen <span class="arrow">→</span></span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="section-foot">
+        <p>Etwas nicht dabei? Fragen Sie uns. Für fast alles haben wir die richtigen Leute an der Hand.</p>
+        <a href="#kontakt" class="text-link">Individuelle Anfrage</a>
+      </div>
+    </div>
+  </section>
+  </div>
+
+  <div class="stack">
+  <section class="modelle" id="zusammenarbeit">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow-text">Zusammenarbeit</p>
+        <h2>Eine Agentur, <em>drei Wege</em> der Zusammenarbeit.</h2>
+        <p>Von Done-For-You bis Do-It-Yourself: Sie entscheiden, wie viel wir übernehmen und wie viel in Ihrem Haus bleibt.</p>
+      </div>
+      <div class="model-grid">
+        <div class="model">
+          <div class="model-media"><img src="https://images.unsplash.com/photo-1601637093781-8d567e2a9eea?fm=jpg&amp;q=75&amp;w=1000&amp;auto=format&amp;fit=crop" style="object-position: 30% 90%;" alt="Sandsteinwand mit grünen Fensterläden und Terrakotta-Töpfen" loading="lazy"><span class="ptile-pill">Done-For-You</span></div>
+          <div class="model-body">
+            <h3>Wir übernehmen das für Sie</h3>
+            <p>Wir übernehmen Ihre Meta- und Google-Kampagnen komplett, inklusive Saisonplanung und Ideenfindung. Sie geben alles frei und behalten die Entscheidungsgewalt. Wir setzen um und berichten regelmäßig über die Kennzahlen.</p>
+            <ul>
+              <li>Komplette Kampagnenbetreuung</li>
+              <li>Auf Wunsch mit Texten, Content und Video</li>
+              <li>Regelmäßige, verständliche Auswertungen</li>
+            </ul>
+            <a href="mailto:info@panther-consulting.com?subject=Anfrage%3A%20Done-For-You&amp;body=Hallo%20Panther-Team%2C%0A%0Aunser%20Hotel%3A%20%0AWebsite%3A%20%0AWas%20wir%20erreichen%20m%C3%B6chten%3A%20%0AAm%20besten%20erreichbar%20unter%3A%20%0A%0AViele%20Gr%C3%BC%C3%9Fe%0A" class="btn-outline btn-outline-light">Anfragen</a>
+          </div>
+        </div>
+        <div class="model">
+          <div class="model-media"><img src="https://images.unsplash.com/photo-1678902177251-7ec8fea483a3?fm=jpg&amp;q=75&amp;w=1000&amp;h=690&amp;fit=crop&amp;crop=focalpoint&amp;fp-x=0.66&amp;fp-y=0.58&amp;fp-z=2.1" alt="Pool mit Liegestühlen zwischen Zypressen" loading="lazy"><span class="ptile-pill">Done-With-You</span></div>
+          <div class="model-body">
+            <h3>Beratung &amp; Betreuung</h3>
+            <p>Wir erarbeiten gemeinsam die Strategie und Planung Ihrer Kampagnen und Ihres Marketingplans. Ihr Team setzt es selbst um.</p>
+            <ul>
+              <li>Marketingplan, Strategie und Saisonplanung</li>
+              <li>Kampagnen-Check und Optimierung</li>
+              <li>Feste Ansprechpartnerin für Ihr Team</li>
+            </ul>
+            <a href="mailto:info@panther-consulting.com?subject=Anfrage%3A%20Beratung%20%26%20Betreuung&amp;body=Hallo%20Panther-Team%2C%0A%0Aunser%20Hotel%3A%20%0AWebsite%3A%20%0AWas%20wir%20erreichen%20m%C3%B6chten%3A%20%0AAm%20besten%20erreichbar%20unter%3A%20%0A%0AViele%20Gr%C3%BC%C3%9Fe%0A" class="btn-outline btn-outline-light">Anfragen</a>
+          </div>
+        </div>
+        <div class="model">
+          <div class="model-media"><img src="https://images.unsplash.com/photo-1756726597936-199d97b85e3f?fm=jpg&amp;q=75&amp;w=1000&amp;h=690&amp;fit=crop&amp;crop=focalpoint&amp;fp-x=0.49&amp;fp-y=0.6&amp;fp-z=1.55" alt="Vier Stühle am Pool mit Blick auf sanfte Hügel" loading="lazy"><span class="ptile-pill">Do-It-Yourself</span></div>
+          <div class="model-body">
+            <h3>Coaching &amp; Mentoring</h3>
+            <p>Sie möchten es selbst können? In regelmäßigen Sessions zeigen wir Ihnen die Methoden und Strategien, die für Hotels funktionieren.</p>
+            <ul>
+              <li>Regelmäßige 1:1-Sessions</li>
+              <li>Feedback zu laufenden Kampagnen</li>
+              <li>Wissen, das in Ihrem Haus bleibt</li>
+            </ul>
+            <a href="mailto:info@panther-consulting.com?subject=Anfrage%3A%20Coaching%20%26%20Mentoring&amp;body=Hallo%20Panther-Team%2C%0A%0Aunser%20Hotel%3A%20%0AWebsite%3A%20%0AWas%20wir%20erreichen%20m%C3%B6chten%3A%20%0AAm%20besten%20erreichbar%20unter%3A%20%0A%0AViele%20Gr%C3%BC%C3%9Fe%0A" class="btn-outline btn-outline-light">Anfragen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="split" id="fuer-wen">
     <div class="split-copy">
-      <p class="eyebrow-text">Für wen das hier gedacht ist</p>
+      <p class="eyebrow-text">Für wen wir arbeiten</p>
       <h2>Für Häuser, die <em>saisonal</em> denken.</h2>
-      <p>Ich arbeite mit inhabergeführten Boutique-Hotels und kleinen Hotelgruppen, vor allem auf Mallorca und im DACH-Raum. Keine anonymen Werbeanzeigen, sondern Kampagnen, die genau dann laufen, wenn sie zählen: zu Ostern, im Sommer, bei einzelnen Events, die wichtig sind.</p>
-      <p>Kleine bis mittlere Häuser mit klarer Handschrift, unverwechselbarem Design und Wiedererkennungswert. Erkennbare Saisonalität in Auslastung und Nachfrage, und der Wunsch nach mehr Direktbuchungen statt OTA-Abhängigkeit.</p>
+      <p>Wir arbeiten mit inhabergeführten Boutique-Hotels und kleinen Hotelgruppen, vor allem auf Mallorca und im DACH-Raum. Keine anonymen Werbeanzeigen, sondern Kampagnen, die genau dann wirken, wenn es zählt: zu Ostern, im Sommer, bei den Events, die für Ihr Haus wichtig sind.</p>
+      <ul class="fit-list">
+        <li>Kleine bis mittlere Häuser mit klarer Handschrift und Wiedererkennungswert</li>
+        <li>Erkennbare Saisonalität in Auslastung und Nachfrage</li>
+        <li>Der Wunsch nach mehr Direktbuchungen statt OTA-Abhängigkeit</li>
+      </ul>
+      <p><a href="#kontakt" class="text-link">Passt das zu Ihrem Haus?</a></p>
     </div>
     <div class="split-media">
-      <img src="https://images.unsplash.com/photo-1572331165267-854da2b10ccc?fm=jpg&q=75&w=1400&auto=format&fit=crop" alt="Ruhiger Rooftop-Pool mit klarer Architektur">
+      <img src="https://images.unsplash.com/photo-1602085336706-607b9f1d9420?fm=jpg&amp;q=75&amp;w=1400&amp;auto=format&amp;fit=crop" alt="Dorf auf Mallorca vor Bergkulisse">
     </div>
   </section>
+  </div>
 
-  <section class="lifestyle-break reveal">
-    <img src="https://images.unsplash.com/photo-1566323526101-051f07ee8925?fm=jpg&q=75&w=2000&auto=format&fit=crop" alt="Türkisblauer Infinity-Pool vor dem Meer">
+  <div class="stack">
+  <section class="lifestyle-break">
+    <img src="https://images.unsplash.com/photo-1509600110300-21b9d5fedeb7?fm=jpg&amp;q=75&amp;w=2000&amp;auto=format&amp;fit=crop" alt="Pool vor einem Steinhaus in den Bergen">
     <div class="lifestyle-scrim"></div>
     <div class="wrap lifestyle-inner">
       <h2>Ihre Kampagnen verdienen<br>die gleiche <em>Aufmerksamkeit</em> wie Ihr Haus.</h2>
     </div>
   </section>
 
-  <section class="leistungen reveal" id="leistungen">
+  <section class="ablauf" id="ablauf">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow-text">Leistungen</p>
-        <h2>Was ich <em>konkret</em> für Sie übernehme</h2>
+        <p class="eyebrow-text">So arbeiten wir</p>
+        <h2>In drei Schritten <em>zum Plan.</em></h2>
       </div>
-      <div class="tile-strip">
-        <div class="tile">
-          <img src="https://images.unsplash.com/photo-1779881719036-4f91f601a82d?fm=jpg&q=75&w=900&auto=format&fit=crop" alt="Google Ads Search">
-          <div class="tile-scrim"></div>
-          <div class="tile-label"><span class="service-num">01</span><h3>Google Ads Search</h3><p>Sichtbar sein, wenn Gäste aktiv suchen.</p></div>
+      <div class="steps">
+        <div class="step">
+          <span class="step-num">01</span>
+          <h3>Erstgespräch</h3>
+          <p>Kostenlos und unverbindlich. Wir lernen Ihr Haus, Ihre Saison und Ihre Ziele kennen und klären, ob wir zusammenpassen.</p>
         </div>
-        <div class="tile">
-          <img src="https://images.unsplash.com/photo-1572331165267-854da2b10ccc?fm=jpg&q=75&w=900&auto=format&fit=crop" alt="Meta Ads">
-          <div class="tile-scrim"></div>
-          <div class="tile-label"><span class="service-num">02</span><h3>Meta Ads</h3><p>Sichtbarkeit auf Instagram und Facebook.</p></div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <h3>Analyse &amp; Plan</h3>
+          <p>Wir schauen uns Website, Anzeigen und Social-Media-Auftritt an und zeigen Ihnen, wo die schnellsten Hebel für mehr Direktbuchungen liegen.</p>
         </div>
-        <div class="tile">
-          <img src="https://images.unsplash.com/photo-1566323526101-051f07ee8925?fm=jpg&q=75&w=900&auto=format&fit=crop" alt="Kampagnenstrategie und Saisonplanung">
-          <div class="tile-scrim"></div>
-          <div class="tile-label"><span class="service-num">03</span><h3>Saisonplanung</h3><p>Kampagnen zu Ostern, Sommer, Events.</p></div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <h3>Umsetzung</h3>
+          <p>Wir setzen um, begleiten Ihr Team oder coachen Sie, je nachdem, welcher Weg zu Ihrem Haus passt. Sie sehen regelmäßig, was funktioniert, ohne Blackbox.</p>
         </div>
-        <div class="tile">
-          <img src="https://images.unsplash.com/photo-1758448500688-3ababa93fd67?fm=jpg&q=75&w=900&auto=format&fit=crop" alt="Beratung und Betreuung">
-          <div class="tile-scrim"></div>
-          <div class="tile-label"><span class="service-num">04</span><h3>Beratung</h3><p>Persönliche Betreuung, keine Blackbox.</p></div>
-        </div>
+      </div>
+      <div class="section-foot">
+        <a href="#kontakt" class="btn-outline btn-green">Mit Schritt 1 starten</a>
       </div>
     </div>
   </section>
+  </div>
 
-  <section class="referenz reveal" id="referenz">
+  <div class="stack">
+  <section class="referenz" id="referenz">
     <div class="wrap referenz-grid">
       <blockquote class="pull-quote">
-        <p>„Ich glaube nicht an lautes Marketing. Ich glaube an Kampagnen, die zur richtigen Zeit am richtigen Ort auftauchen und Sie sonst in Ruhe lassen.“</p>
-        <cite>Isabelle Panther</cite>
+        <p>„Wir glauben nicht an lautes Marketing. Wir glauben an Kampagnen, die zur richtigen Zeit am richtigen Ort auftauchen und Sie sonst in Ruhe lassen.“</p>
+        <cite>Isabelle Panther, Gründerin</cite>
       </blockquote>
       <div class="referenz-fact">
-        <span class="fact-number">13</span>
-        <span class="fact-label">Jahre Performance Marketing,<br>Google und Meta Ads</span>
+        <span class="fact-number">1</span>
+        <span class="fact-label">Ansprechpartnerin für Ihre Kampagnen<br>und alles, was dazugehört</span>
       </div>
     </div>
 
     <div class="wrap social-proof">
+      <p class="eyebrow-text">Kundenstimmen</p>
       <div class="stats-row">
         <div>
-          <span class="fact-number">13</span>
-          <span class="fact-label">Jahre Performance<br>Marketing</span>
+          <span class="fact-number">14</span>
+          <span class="fact-label">Jahre Erfahrung im<br>Online Marketing</span>
         </div>
         <div>
           <span class="fact-number">1,6+</span>
@@ -256,7 +521,7 @@ a { color: inherit; }
         </div>
         <div class="testimonial-card">
           <p class="quote">„Isabelle überzeugt mit ihrer Erfahrung im Bereich Online Marketing und unterstützt proaktiv. Unsere Ads liefen über Monate erfolgreich mit ihr und wir haben einen ROAS über 1,6 erreicht.“</p>
-          <span class="who">Ben, Eventpsychologie</span>
+          <span class="who">Ben, Wirkung Digital</span>
         </div>
         <div class="testimonial-card">
           <p class="quote">„Ihre Leidenschaft für SEA, ihre Zuverlässigkeit und ihre Fähigkeit, maßgeschneiderte Lösungen zu entwickeln, haben dazu beigetragen, dass unsere Werbeziele erreicht wurden.“</p>
@@ -270,35 +535,50 @@ a { color: inherit; }
     </div>
   </section>
 
-  <section class="split reveal" id="ueber-mich">
+  <section class="split" id="gruenderin">
     <div class="split-copy">
-      <p class="eyebrow-text">Über mich</p>
+      <p class="eyebrow-text">Die Gründerin</p>
       <h2>Isabelle <em>Panther</em></h2>
-      <p>Seit 13 Jahren arbeite ich im Performance Marketing. Parallel als Flugbegleiter war ich in den schönsten 5-Sterne-Hotels dieser Welt unterwegs und weiß, wie Atmosphäre, Gäste und Marketing zusammenspielen. Ich verbringe viel Zeit auf Mallorca und kenne die Insel, die Saisonalität und die Gästeerwartung aus erster Hand. Bei mir bekommen Sie kein Remote-Callcenter-Gefühl, sondern direkte Zusammenarbeit mit der Person, die Ihre Kampagnen tatsächlich betreut, wenn Sie möchten auch direkt vor Ort.</p>
+      <p>Seit 14 Jahren arbeite ich im Online Marketing. Parallel als Flugbegleiter war ich in den schönsten 5-Sterne-Hotels dieser Welt unterwegs und weiß, wie Atmosphäre, Gäste und Marketing zusammenspielen. Ich verbringe viel Zeit auf Mallorca und kenne die Insel, die Saisonalität und die Gästeerwartung aus erster Hand.</p>
+      <p>Ihre Kampagnen betreue ich persönlich. Für Texte, Social Media, Video und Branding arbeite ich mit einem festen Netzwerk aus Spezialistinnen und Spezialisten zusammen. Sie haben trotzdem nur eine Ansprechpartnerin: mich. Kein Remote-Callcenter-Gefühl, keine Account-Manager-Kette, wenn Sie möchten auch direkt vor Ort.</p>
     </div>
     <div class="split-media photo-placeholder">
       <span>Foto folgt</span>
     </div>
   </section>
 
-  <section class="cta-final reveal" id="kontakt">
+  <section class="cta-final" id="kontakt">
     <div class="hero-media">
       <img src="https://images.unsplash.com/photo-1779881719036-4f91f601a82d?fm=jpg&q=75&w=2200&auto=format&fit=crop" alt="Küstenort mit Terracotta-Dächern und blauem Meer">
       <div class="hero-scrim"></div>
     </div>
-    <div class="wrap">
-      <h2>Bereit für <em>überzeugende</em> Kampagnen und die richtigen Gäste in Ihren Zimmern?</h2>
-      <p>Lassen Sie uns in einem kurzen Erstgespräch klären, ob und wie das für Ihr Haus funktioniert.</p>
-      <a href="mailto:info@panther-consulting.com?subject=Erstgespr%C3%A4ch%20Hotel-Kampagne" class="btn-outline btn-outline-light">Erstgespräch anfragen</a>
+    <div class="wrap contact-grid">
+      <div>
+        <p class="eyebrow-text eyebrow-light">Kostenloses Erstgespräch</p>
+        <h2>Lassen Sie uns über <em>Ihr Haus</em> sprechen.</h2>
+        <p>Schreiben Sie uns kurz, um welches Hotel es geht und wobei wir helfen können. Wir melden uns innerhalb von zwei Werktagen mit Terminvorschlägen für ein unverbindliches Erstgespräch.</p>
+        <a href="mailto:info@panther-consulting.com?subject=Erstgespr%C3%A4ch%20%E2%80%93%20Hotelmarketing&amp;body=Hallo%20Panther-Team%2C%0A%0Aunser%20Hotel%3A%20%0AWebsite%3A%20%0AWas%20wir%20erreichen%20m%C3%B6chten%3A%20%0AAm%20besten%20erreichbar%20unter%3A%20%0A%0AViele%20Gr%C3%BC%C3%9Fe%0A" class="btn-outline btn-green">Jetzt Erstgespräch anfragen</a>
+      </div>
+      <div class="contact-card">
+        <p class="eyebrow-text">Oder direkt an</p>
+        <a href="mailto:info@panther-consulting.com?subject=Erstgespr%C3%A4ch%20%E2%80%93%20Hotelmarketing&amp;body=Hallo%20Panther-Team%2C%0A%0Aunser%20Hotel%3A%20%0AWebsite%3A%20%0AWas%20wir%20erreichen%20m%C3%B6chten%3A%20%0AAm%20besten%20erreichbar%20unter%3A%20%0A%0AViele%20Gr%C3%BC%C3%9Fe%0A" class="mail-address">info@panther-consulting.com</a><br>
+        <button type="button" class="btn-outline btn-outline-light copy-btn" data-copy="info@panther-consulting.com" data-done="Kopiert ✓">Adresse kopieren</button>
+        <ul>
+          <li>Name und Website Ihres Hotels</li>
+          <li>Was Sie erreichen möchten, z.&nbsp;B. mehr Direktbuchungen in der Nebensaison</li>
+          <li>Welche Leistungen Sie interessieren</li>
+        </ul>
+      </div>
     </div>
   </section>
+  </div>
 
 </main>
 
 <footer class="site-footer">
   <div class="wrap footer-inner">
-    <span>© <span id="year"></span> Panther Consulting</span>
-    <nav class="footer-nav"><a href="/impressum">Impressum</a><a href="/datenschutz">Datenschutz</a></nav>
+    <span>© <span id="year"></span> Panther Consulting · Hotelmarketing-Agentur</span>
+    <nav class="footer-nav"><a href="mailto:info@panther-consulting.com">info@panther-consulting.com</a><a href="/impressum">Impressum</a><a href="/datenschutz">Datenschutz</a></nav>
   </div>
 </footer>
 
@@ -315,6 +595,37 @@ toggle.addEventListener('click', () => {
   toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 });
 document.querySelectorAll('.nav a').forEach(link => link.addEventListener('click', () => { nav.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }));
+document.querySelectorAll('[data-copy]').forEach(btn => btn.addEventListener('click', async () => {
+  const label = btn.dataset.label || btn.textContent;
+  btn.dataset.label = label;
+  let ok = false;
+  try { await navigator.clipboard.writeText(btn.dataset.copy); ok = true; }
+  catch (e) {
+    const ta = document.createElement('textarea');
+    ta.value = btn.dataset.copy; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    try { ok = document.execCommand('copy'); } catch (_) {}
+    ta.remove();
+  }
+  if (ok) { btn.textContent = btn.dataset.done; setTimeout(() => { btn.textContent = label; }, 2000); }
+}));
+const stacks = Array.from(document.querySelectorAll('.stack'));
+const stackOn = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+stacks.forEach((el, i) => { el.style.zIndex = stacks.length - i; });
+let stackTick = false;
+const updateStack = () => {
+  stackTick = false;
+  const vh = window.innerHeight;
+  for (let i = 1; i < stacks.length; i++) {
+    const prevBottom = stacks[i - 1].getBoundingClientRect().bottom;
+    stacks[i].style.transform = (prevBottom > 0 && prevBottom <= vh) ? 'translateY(' + (-prevBottom) + 'px)' : '';
+  }
+};
+if (stackOn) {
+  window.addEventListener('scroll', () => { if (!stackTick) { stackTick = true; requestAnimationFrame(updateStack); } }, { passive: true });
+  window.addEventListener('resize', updateStack);
+  updateStack();
+}
 const revealEls = document.querySelectorAll('.reveal');
 if ('IntersectionObserver' in window && revealEls.length) {
   const observer = new IntersectionObserver((entries) => {
